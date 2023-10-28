@@ -23,12 +23,15 @@ export default class Template {
     }
 
     /**
-     * @param {Function} transform
+     * @param {Function|null} transform
      * @returns {Node}
      */
-    render(transform) {
+    render(transform = null) {
         const template = this.#template.content.cloneNode(true);
-        transform(template);
+
+        if (transform) {
+            transform(template);
+        }
 
         return template;
     }
