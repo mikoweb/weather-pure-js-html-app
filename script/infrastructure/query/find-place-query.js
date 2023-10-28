@@ -7,7 +7,7 @@ export default class FindPlaceQuery {
      * @returns {PlaceDto[]}
      */
     static async findPlace(query) {
-        const url = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=10&appid=${Config.openWeatherApiKey}`;
+        const url = `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=10&appid=${Config.openWeatherApiKey}`;
         const response = await fetch(url);
         const items = await response.json();
         const result = [];
