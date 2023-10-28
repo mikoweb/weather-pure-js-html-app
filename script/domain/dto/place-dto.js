@@ -6,6 +6,14 @@ export default class PlaceDto {
     #country;
     #state;
 
+    /**
+     * @param {string} name
+     * @param {string} localName
+     * @param {number} lat
+     * @param {number} lon
+     * @param {string} country
+     * @param {string} state
+     */
     constructor(name, localName, lat, lon, country, state) {
         this.#name = name;
         this.#localName = localName;
