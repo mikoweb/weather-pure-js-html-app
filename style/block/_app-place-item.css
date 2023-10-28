@@ -1,0 +1,17 @@
+.app-place-item {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.app-place-item:hover {
+    background: #EDE7F6;
+}
+
+.app-place-item.active {
+    background: #B39DDB;
+    color: #fff;
+    font-weight: bold;
+}

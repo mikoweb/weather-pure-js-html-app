@@ -16,6 +16,7 @@ export default class PlaceFormBehavior {
 
     #init() {
         this.#initQueryInput();
+        this.#initForm();
     }
 
     /**
@@ -25,12 +26,27 @@ export default class PlaceFormBehavior {
         return this.#el.querySelector('.app-place-form__place-input');
     }
 
+    /**
+     * @returns {HTMLFormElement}
+     */
+    #getForm() {
+        return this.#el.querySelector('form');
+    }
+
     #initQueryInput() {
         const input = this.#getQueryInput();
         this.#loadQuery(input.value);
 
         input.addEventListener('input', (event) => {
             this.#loadQuery(event.target.value);
+        });
+    }
+
+    #initForm() {
+        const form = this.#getForm();
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
         });
     }
 
