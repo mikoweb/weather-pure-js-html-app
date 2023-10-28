@@ -4,11 +4,12 @@ import Config from '../../application/config/config.js';
 export default class FindPlaceQuery {
     /**
      * @param {string} query
+     * @param {AbortSignal|null} signal
      * @returns {PlaceDto[]}
      */
-    static async findPlace(query) {
+    static async findPlace(query, signal= null) {
         const url = `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=10&appid=${Config.openWeatherApiKey}`;
-        const response = await fetch(url);
+        const response = await fetch(url, {signal});
         const items = await response.json();
         const result = [];
 
