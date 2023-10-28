@@ -1,4 +1,5 @@
 import View from '../view.js';
+import PlaceItemBehavior from '../behavior/place-item-behavior.js';
 
 export default class PlaceResultView extends View {
     get templatePath() {
@@ -26,7 +27,11 @@ export default class PlaceResultView extends View {
                     `${place.localName} (${place.country}) - [${place.lat.toFixed(3)}, ${place.lon.toFixed(3)}]`;
             });
 
-            this._el.appendChild(node);
+            const item = node.querySelector('.app-place-item');
+            item.dataset.lat = place.lat.toString();
+            item.dataset.lon = place.lon.toString();
+            new PlaceItemBehavior(item);
+            this._el.appendChild(item);
         }
     }
 }
